@@ -9,6 +9,7 @@ import android.view.ViewGroup
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
 import com.example.bhagavatgeeta.databinding.FragmentHomeBinding
+import com.example.bhagavatgeeta.view.adapter.AdapterFile
 import com.example.bhagavatgeeta.viewmodel.MainViewModel
 import kotlinx.coroutines.launch
 
@@ -16,6 +17,7 @@ import kotlinx.coroutines.launch
 class HomeFragment : Fragment() {
     private lateinit var  binding :FragmentHomeBinding
 private val viewModel:MainViewModel by viewModels()
+    lateinit var adapterFile: AdapterFile
 
 
     override fun onCreateView(
@@ -36,9 +38,9 @@ private val viewModel:MainViewModel by viewModels()
 lifecycleScope.launch {
     viewModel.getAllChapter().collect {chapterlist->
 
-        for (i in chapterlist){
-            Log.d("tag",i.toString())
-        }
+     adapterFile =adapterFile
+        binding.recycleView.adapter =adapterFile
+        adapterFile.differ.submitList(chapterlist)
 
     }
 }
