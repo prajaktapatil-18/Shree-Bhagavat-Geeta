@@ -65,8 +65,9 @@
             android:id="@+id/recycle_view"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@id/tv_chapter"
-            tools:listitem="@layout/recyle_lyt"/>
+android:visibility="visible"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            android:layout_below="@id/tv_chapter" />
 
 
 

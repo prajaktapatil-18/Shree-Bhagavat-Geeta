@@ -2,12 +2,12 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="wrap_content">
 
 
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
-        android:layout_height="230dp"
+        android:layout_height="200dp"
         android:layout_margin="10dp"
         android:clickable="true"
         android:focusable="true"
@@ -50,6 +50,7 @@
                 android:layout_height="wrap_content"
                 android:text="The forst chapter of bhagavt geeta arjun visada yoga introduce the setup ,the setting, the charactor and the circumtances that leqad to epic battle of maharshtra,fought betwen the pandav"
                 android:textSize="18sp"
+                android:maxLines="3"
                 android:layout_marginStart="10dp"
                 android:layout_marginTop="10dp"
                 android:layout_below="@id/tv_rv_chapter_name"/>

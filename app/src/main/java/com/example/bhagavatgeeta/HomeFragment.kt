@@ -17,7 +17,7 @@ import kotlinx.coroutines.launch
 class HomeFragment : Fragment() {
     private lateinit var  binding :FragmentHomeBinding
 private val viewModel:MainViewModel by viewModels()
-    lateinit var adapterFile: AdapterFile
+     private lateinit var adapterFile: AdapterFile
 
 
     override fun onCreateView(
@@ -38,7 +38,7 @@ private val viewModel:MainViewModel by viewModels()
 lifecycleScope.launch {
     viewModel.getAllChapter().collect {chapterlist->
 
-     adapterFile =adapterFile
+     adapterFile = AdapterFile()
         binding.recycleView.adapter =adapterFile
         adapterFile.differ.submitList(chapterlist)
 
