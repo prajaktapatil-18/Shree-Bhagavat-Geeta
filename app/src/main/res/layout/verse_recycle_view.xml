@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+
+    <ImageView
+        android:id="@+id/img_list"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/baseline_view_list_24"
+        android:layout_margin= "12dp"
+        android:padding= "10dp"/>
+
+    
+    <TextView
+        android:id="@+id/tv_verse_number"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Verse 1"
+        android:textSize="23sp"
+        android:textStyle="bold"
+        android:textColor="#ff0000"
+        android:layout_toRightOf="@id/img_list"
+        android:layout_marginTop="15dp"/>
+
+    <TextView
+android:id="@+id/tv_verse_des"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/verse_para"
+        android:layout_below="@id/img_list"
+        android:layout_marginStart= "12dp"
+        android:layout_marginEnd= "12dp"/>
+
+</RelativeLayout>

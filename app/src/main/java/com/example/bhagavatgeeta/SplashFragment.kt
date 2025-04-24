@@ -12,7 +12,7 @@ import com.example.bhagavatgeeta.databinding.FragmentSplashBinding
 
 
 class SplashFragment : Fragment() {
-    private  lateinit var binding :FragmentSplashBinding
+    private lateinit var binding: FragmentSplashBinding
 
 
     override fun onCreateView(
@@ -24,9 +24,9 @@ class SplashFragment : Fragment() {
 
         Handler(Looper.getMainLooper()).postDelayed({
 
-findNavController().navigate(R.id.action_splashFragment_to_homeFragment)
+            findNavController().navigate(R.id.action_splashFragment_to_homeFragment)
 
-        },3000)
+        }, 3000)
 
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_splash, container, false)

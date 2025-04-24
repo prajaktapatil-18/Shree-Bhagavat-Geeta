@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".VersesFragment">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <ImageView
+            android:layout_width="45dp"
+            android:layout_height="45dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="10dp"
+            android:layout_toLeftOf="@id/tv_bhavagt_geeta"
+            android:src="@drawable/lotus" />
+
+        <TextView
+            android:id="@+id/tv_bhavagt_geeta"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="10dp"
+            android:text="Shree Bhagavat Geeta"
+            android:textColor="#ff0000"
+            android:textSize="27sp"
+            android:textStyle="bold" />
+
+        <ImageView
+            android:layout_width="45dp"
+            android:layout_height="45dp"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="10dp"
+            android:layout_toRightOf="@id/tv_bhavagt_geeta"
+            android:src="@drawable/lotus" />
+
+
+        <TextView
+            android:id="@+id/tv_chapter_no"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/tv_bhavagt_geeta"
+            android:layout_centerInParent="true"
+            android:layout_marginTop="20dp"
+            android:text="Chapter 1"
+            android:textColor="#ff0000"
+            android:textSize="16dp"
+            android:textStyle="bold" />
+
+
+        <TextView
+            android:id="@+id/tv_chapter_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/tv_chapter_no"
+            android:layout_centerInParent="true"
+            android:layout_marginTop="16dp"
+            android:text="Arjun visada yoga"
+            android:textColor="@color/black"
+            android:textSize="24dp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/verse_para"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/tv_chapter_name"
+            android:layout_marginStart="13dp"
+            android:layout_marginTop="13dp"
+            android:layout_marginEnd="13dp"
+            android:text="@string/verse_para" />
+
+        <TextView
+            android:id="@+id/tv_read_more"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+    android:layout_below="@id/verse_para"
+            android:text="@string/read_more"
+            android:textSize="14sp"
+            android:layout_marginStart="10sp"
+            android:textColor="#0000ff"/>
+
+
+        <TextView
+            android:id="@+id/tv_verse_count_no"
+            android:layout_width="wrap_content"
+            android:text="47 verse"
+            android:layout_below="@id/tv_read_more"
+            android:textSize="20dp"
+            android:layout_marginTop="13dp"
+            android:textStyle="bold"
+            android:layout_marginStart="15dp"
+            android:layout_height="wrap_content" />
+
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recycle_view_verse"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/tv_verse_count_no"
+            android:layout_marginTop="13dp"
+            tools:listitem="@layout/verse_recycle_view"
+            android:layout_marginEnd="13dp"
+            android:layout_marginStart="13dp"/>
+
+
+    </RelativeLayout>
+
+
+</LinearLayout>

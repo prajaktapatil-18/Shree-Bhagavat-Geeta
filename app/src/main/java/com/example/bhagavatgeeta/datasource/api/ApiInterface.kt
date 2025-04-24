@@ -1,23 +1,25 @@
 package com.example.bhagavatgeeta.datasource.api
 
+import android.telecom.Call
+import com.example.bhagavatgeeta.model.Translation
+import com.example.bhagavatgeeta.model.VerseItem
+
 import com.example.bhagavatgeeta.model.chaptersItem
+
 import retrofit2.http.GET
 import retrofit2.http.Headers
+import retrofit2.http.Path
 
 interface ApiInterface {
 
 
 
-    @Headers(
-
-        "Accept: application/json",
-        "x-rapidapi-key: 08b60f5225msh943106be58bb578p15fc60jsn8b443df4a922",
-        "x-rapidapi-host: bhagavad-gita3.p.rapidapi.com"
-
-    )
 
     @GET("/v2/chapters/")
     fun getAllChapter(): retrofit2.Call<List<chaptersItem>>
 
+
+    @GET("/v2/chapters/{chapterNumber}/verses/")
+    fun getVerses(@Path("chapterNumber") chapterNumber: Int) : retrofit2.Call<List<VerseItem>>
 
 }

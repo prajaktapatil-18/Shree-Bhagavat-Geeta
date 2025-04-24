@@ -5,13 +5,11 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.AsyncListDiffer
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
-import androidx.recyclerview.widget.RecyclerView.Recycler
 import androidx.recyclerview.widget.RecyclerView.ViewHolder
-import com.example.bhagavatgeeta.databinding.FragmentHomeBinding
 import com.example.bhagavatgeeta.databinding.RecyleLytBinding
 import com.example.bhagavatgeeta.model.chaptersItem
 
-class AdapterFile:RecyclerView.Adapter<AdapterFile.viewHolder>() {
+class AdapterFile( val kFunction1: (chaptersItem) -> Unit) :RecyclerView.Adapter<AdapterFile.viewHolder>() {
 
     class viewHolder(val binding: RecyleLytBinding) : ViewHolder(binding.root)
 
@@ -44,23 +42,28 @@ class AdapterFile:RecyclerView.Adapter<AdapterFile.viewHolder>() {
     override fun onBindViewHolder(holder: AdapterFile.viewHolder, position: Int) {
 
 
-        val chapter :chaptersItem = differ.currentList[position]
+        val chapter: chaptersItem = differ.currentList[position]
 
 
 
         holder.binding.apply {
             tvRvChapterNo.text = "chapter ${chapter.chapter_number}"
             tvRvChapterName.text = chapter.name_translated
-            tvRvSaransh.text= chapter.chapter_summary
+            tvRvSaransh.text = chapter.chapter_summary
             tvRvViewCount.text = chapter.verses_count.toString()
 
 
         }
+      holder.binding.card.setOnClickListener {
+          kFunction1(chapter)
+      }
 
     }
+
 
     override fun getItemCount(): Int {
         return differ.currentList.size
 
     }
+
 }
