@@ -1,7 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/verse_card"
+    android:layout_margin="10dp"
+    android:layout_height="wrap_content">
+
+    <RelativeLayout
+        android:id="@+id/relative_lyt"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
 
 
     <ImageView
@@ -30,7 +38,13 @@ android:id="@+id/tv_verse_des"
         android:layout_height="wrap_content"
         android:text="@string/verse_para"
         android:layout_below="@id/img_list"
+        android:textColor="@color/black"
+        android:layout_marginBottom="10dp"
         android:layout_marginStart= "12dp"
         android:layout_marginEnd= "12dp"/>
 
-</RelativeLayout>
+    </RelativeLayout>
+
+
+
+</androidx.cardview.widget.CardView>

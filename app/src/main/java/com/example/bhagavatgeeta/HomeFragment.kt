@@ -48,6 +48,7 @@ class HomeFragment : Fragment() {
 
             } else {
                 binding.tvShowMessge.visibility = View.VISIBLE
+
             }
         }
 
@@ -66,28 +67,25 @@ class HomeFragment : Fragment() {
             }
         }
 
-
-
-
     }
-    private  fun onChapterIVClick(chaptersItem: chaptersItem){
+
+    private fun onChapterIVClick(chaptersItem: chaptersItem) {
 
         val bundle = Bundle()
         bundle.putInt("chapter_number", chaptersItem.chapter_number)
-        bundle.putString("chapter_name",chaptersItem.name_translated)
-        bundle.putString("chapter_des",chaptersItem.chapter_summary)
-        bundle.putInt("verse_count",chaptersItem.verses_count)
+        bundle.putString("chapter_name", chaptersItem.name_translated)
+        bundle.putString("chapter_des", chaptersItem.chapter_summary)
+        bundle.putInt("verse_count", chaptersItem.verses_count)
 
 
 
-        findNavController().navigate(R.id.action_homeFragment_to_versesFragment,bundle)
-
-
-    }
-
+        findNavController().navigate(R.id.action_homeFragment_to_versesFragment, bundle)
 
 
     }
+
+
+}
 
 
 

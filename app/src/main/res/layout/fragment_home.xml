@@ -34,13 +34,6 @@
                 android:scaleType="centerCrop"
                 android:src="@drawable/rk" />
 
-            <TextView
-                android:id="@+id/tv_verse_of_day"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_margin="10dp"
-                android:text="verse of day"
-                android:textSize="20sp" />
 
         </androidx.cardview.widget.CardView>
 

@@ -1,6 +1,8 @@
 package com.example.bhagavatgeeta.repositroy
 
+import android.util.Log
 import com.example.bhagavatgeeta.datasource.api.ApiUtilities
+import com.example.bhagavatgeeta.model.Verse
 import com.example.bhagavatgeeta.model.VerseItem
 
 import com.example.bhagavatgeeta.model.chaptersItem
@@ -15,26 +17,26 @@ import java.util.concurrent.Flow
 
 class AppRepository {
 
-    fun getAllChapter() : kotlinx.coroutines.flow.Flow<List<chaptersItem>>  = callbackFlow {
+    fun getAllChapter(): kotlinx.coroutines.flow.Flow<List<chaptersItem>> = callbackFlow {
 
 
         val callback = object : Callable<List<chaptersItem>>, Callback<List<chaptersItem>> {
 
             override fun onResponse(
                 call: Call<List<chaptersItem>>,
-                response : Response<List<chaptersItem>>
+                response: Response<List<chaptersItem>>
 
 
-            ){
+            ) {
 
-                if (response.isSuccessful&& response.body()  !=null){
+                if (response.isSuccessful && response.body() != null) {
                     trySend(response.body()!!)
                     close()
                 }
 
             }
 
-            override fun onFailure(call : Call<List<chaptersItem>>, t :Throwable){
+            override fun onFailure(call: Call<List<chaptersItem>>, t: Throwable) {
                 close(t)
 
             }
@@ -48,38 +50,73 @@ class AppRepository {
 
         ApiUtilities.api.getAllChapter().enqueue(callback)
 
-        awaitClose {  }
+        awaitClose { }
     }
 
 
-   fun getVerse(chapterNumber :Int) : kotlinx.coroutines.flow.Flow<List<VerseItem>>  = callbackFlow {
+    fun getVerse(chapterNumber: Int): kotlinx.coroutines.flow.Flow<List<VerseItem>> = callbackFlow {
 
-       val callback = object : Callback<List<VerseItem>> {
-           override fun onResponse(p0: Call<List<VerseItem>>, response: Response<List<VerseItem>>) {
-
-               if (response.isSuccessful && response.body() != null) {
-                   trySend(response.body()!!)
-                   close()
-               }
+        val callback = object : Callable<List<VerseItem>>, Callback<List<VerseItem>> {
 
 
-           }
+            override fun call(): List<VerseItem> {
+                TODO("Not yet implemented")
+            }
 
-           override fun onFailure(p0: Call<List<VerseItem>>, t: Throwable) {
-               close(t)
+            override fun onResponse(
+                call: Call<List<VerseItem>>,
+                response: Response<List<VerseItem>>
+            ) {
+                if (response.isSuccessful && response.body() != null) {
+                    Log.d("AppRepository", "Verses fetched: ${response.body()?.size}")
+                    trySend(response.body()!!)
+                    close()
+                } else {
+                    Log.e("AppRepository", "Response failed: ${response.code()}")
+                }
+            }
 
-           }
+
+            override fun onFailure(call: Call<List<VerseItem>>, t: Throwable) {
+                close(t)
 
 
-       }
+            }
+
+        }
+        ApiUtilities.api.getVerses(chapterNumber).enqueue(callback)
+        awaitClose { }
+
+    }
+
+    fun getVerseData(chapterNumber: Int,verseNumber :Int) :kotlinx.coroutines.flow.Flow<Verse> = callbackFlow {
+
+        val callback = object : Callback<Verse>, Callable<Verse>{
 
 
-    ApiUtilities.api.getVerses(chapterNumber).enqueue(callback)
+        override fun onResponse(call: Call<Verse>, response: Response<Verse>) {
 
 
-awaitClose {  }
+             if(response.isSuccessful && response.body() != null){
+                 trySend(response.body()!!)
+                 close()
 
 
-   }
+             }
+        }
+
+        override fun onFailure(p0: Call<Verse>, t: Throwable) {
+           close(t)
+        }
+
+        override fun call(): Verse {
+            TODO("Not yet implemented")
+        }
+
+
+    }
+        ApiUtilities.api.getVerseData(chapterNumber,verseNumber).enqueue(callback)
+        awaitClose {  }
+    }
 
 }

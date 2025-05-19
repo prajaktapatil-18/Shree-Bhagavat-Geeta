@@ -62,7 +62,8 @@ class AdapterFile( val kFunction1: (chaptersItem) -> Unit) :RecyclerView.Adapter
 
 
     override fun getItemCount(): Int {
-        return differ.currentList.size
+
+         return differ.currentList.size
 
     }
 

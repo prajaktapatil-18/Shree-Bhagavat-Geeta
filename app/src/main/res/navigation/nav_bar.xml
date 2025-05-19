@@ -22,10 +22,52 @@
         <action
             android:id="@+id/action_homeFragment_to_versesFragment"
             app:destination="@id/versesFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_settingFragment"
+            app:destination="@id/settingFragment" />
     </fragment>
     <fragment
         android:id="@+id/versesFragment"
         android:name="com.example.bhagavatgeeta.VersesFragment"
         android:label="fragment_verses"
-        tools:layout="@layout/fragment_verses" />
+        tools:layout="@layout/fragment_verses" >
+        <action
+            android:id="@+id/action_versesFragment_to_verseDetailFragment"
+            app:destination="@id/verseDetailFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/verseDetailFragment"
+        android:name="com.example.bhagavatgeeta.VerseDetailFragment"
+        android:label="fragment_verse_detail"
+        tools:layout="@layout/fragment_verse_detail" />
+    <fragment
+        android:id="@+id/settingFragment"
+        android:name="com.example.bhagavatgeeta.SettingFragment"
+        android:label="fragment_setting"
+        tools:layout="@layout/fragment_setting" >
+        <action
+            android:id="@+id/action_settingFragment_to_saveChapterFragment"
+            app:destination="@id/saveChapterFragment" />
+        <action
+            android:id="@+id/action_settingFragment_to_saveVerseFragment"
+            app:destination="@id/saveVerseFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/saveChapterFragment"
+        android:name="com.example.bhagavatgeeta.SaveChapterFragment"
+        android:label="fragment_save_chapter"
+        tools:layout="@layout/fragment_save_chapter" >
+        <action
+            android:id="@+id/action_saveChapterFragment_to_versesFragment"
+            app:destination="@id/versesFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/saveVerseFragment"
+        android:name="com.example.bhagavatgeeta.SaveVerseFragment"
+        android:label="fragment_save_verse"
+        tools:layout="@layout/fragment_save_verse" >
+        <action
+            android:id="@+id/action_saveVerseFragment_to_verseDetailFragment"
+            app:destination="@id/verseDetailFragment" />
+    </fragment>
 </navigation>
